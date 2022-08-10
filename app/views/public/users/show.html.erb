@@ -1,1 +1,16 @@
-<p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
+<table class='table'>
+  <tr><%= image_tag @user.get_profile_image, size:'100x100' %></tr>
+  <tr>
+	  <th>名前</th>
+	  <th><%= @user.name %>
+  <tr>
+	  <th>自己紹介</th>
+	  <th><%= @user.introduction %></th>
+  </tr>
+</table>
+
+<div class='row'>
+  <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block edit_user_#{@user.id}" do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>

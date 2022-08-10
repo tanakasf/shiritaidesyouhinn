@@ -1,6 +1,6 @@
 <div class="col-xs-offset-1">
 		<div class="item-image">
-			<%= image_tag(@item, :image, fallback: "no_image.jpg",size: "300x217" ) %>
+			<%= image_tag @item.image, size: "200x200" %>
 		</div>
 	</div>
 	<div class="col-xs-5">
@@ -10,8 +10,8 @@
 			<h3 class="item-price">￥<%= (@item.price * 1.1).to_i %><span>（税込）</span></h3>
 		</div>
 		<div>
-      <%= render "item_comments/index", item: @item %>
-      <%= render "item_comments/form", item: @item, item_comment: @item_comment %>
+      <%= render "public/item_comments/index", item: @item %>
+      <%= render "public/item_comments/form", item: @item, item_comment: @item_comment %>
     </div>
 	</div>
 </div>

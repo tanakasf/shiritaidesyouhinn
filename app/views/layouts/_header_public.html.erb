@@ -1,8 +1,4 @@
-<nav class="nav navbar-nav">
-  <span class="public-name  login-public-name">
-    ようこそ、<%= current_user.first_name %><%= current_user.last_name %>さん！
-  </span>
-  </nav>
+
   <nav>
     <ul class="nav navbar-nav navbar-right">
       <li class="">
@@ -12,7 +8,7 @@
         <%= link_to "商品一覧", items_path %>
       </li>
       <li>
-        <%= button_to "ログアウト", destroy_user_session_path %>
+        <%= link_to "ログアウト", destroy_user_session_path %>
       </li>
     </ul>
   </nav>

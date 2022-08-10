@@ -17,7 +17,7 @@ class Public::ItemsController < ApplicationController
 
    def show
      @item = Item.find(params[:id])
-     @comments = @item.comments
+     @item_comments = @item.item_comments
      @item_comment = ItemComment.new
      @genres = Genre.where(is_enabled: true)
    end
@@ -27,4 +27,5 @@ class Public::ItemsController < ApplicationController
    def item_params
      params.require(:item).permit(:name, :explanation, :image, :genre_id, :price, :is_enabled)
    end
+
 end

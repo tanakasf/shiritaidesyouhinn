@@ -1,28 +1,25 @@
-<div class="col-xs-9">
+
         <h2><%= "#{@index}一覧 （全#{@items_all.count}件）" %></h2>
+        <table class='table table-hover table-inverse'>
+            <thead>
+              <tr>
+                 <th></th>
+                 <th>商品名</th>
+                 <th>値段</th>
+                 <th>コメント</th>
+              </tr>
+            </thead>
+        <tbody>
         <% @items.each do |item| %>
-            <div class="item-box">
-                <table class="table">
-                    <tr>
-                        <th><%= link_to item_path(item) do %>
-                            <%= image_tag(item, :image,size: "180x130", fallback: "no_image.jpg") %>
-                            <% end %>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th><%= link_to item.name, item_path(item) %></th>
-                    </tr>
-                    <tr>
-                        <th>￥<%= (item.price * 1.1).to_i %></th>
-                    </tr>
-                    <tr>
-                        <th><%= render "favorites/btn", book: book %></th>
-                    </tr>
-                    <tr>
-                        <th>コメント数: <%= item.item_comments.count %></th>
-                    </tr>
-                </table>
-            </div>
+        <tr>
+            <th><%= link_to item_path(item) do %>
+                　<%= image_tag item.image, size: "70x70" %>
+                <% end %>
+            </th>
+            <th><%= link_to item.name, item_path(item) %></th>
+            <th>￥<%= (item.price * 1.1).to_i %></th>
+            <th><%#= render 'public/favorites/btn', item: item %></th>
+            <th>コメント数: <%= item.item_comments.count %></th>
+        </tr>
         <% end %>
     </div>
-</div>
