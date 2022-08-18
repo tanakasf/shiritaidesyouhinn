@@ -13,7 +13,7 @@
     <!-- エラーメッセージ表示-->
     <div class="col-xs-5">
       <div class="field">
-            <%= image_tag(@item, :image, size: "300x217", fallback: "no_image.jpg") %>
+            <%= image_tag @item.image, size: "100x100" %>
             <%= f.file_field :image, accept: "image/*" %>
       </div>
     </div>

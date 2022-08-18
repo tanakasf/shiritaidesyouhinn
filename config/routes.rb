@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
- #ログアウト用
-  devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
-  devise_scope :admin do
-    get '/admins/sign_out' => 'devise/sessions#destroy'
-  end
 
   # # ユーザー用
     devise_for :users,skip: [:passwords], controllers: {
@@ -38,9 +31,5 @@ Rails.application.routes.draw do
   # 商品
    resources :items, only: [:new, :show, :create, :edit, :index, :update]
  end
-
-  devise_scope :admin do
-    get '/admins/sign_out' => 'devise/sessions#destroy'
-  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

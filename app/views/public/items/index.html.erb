@@ -1,4 +1,4 @@
-
+<div class="row">
         <h2><%= "#{@index}一覧 （全#{@items_all.count}件）" %></h2>
         <table class='table table-hover table-inverse'>
             <thead>
@@ -6,6 +6,7 @@
                  <th></th>
                  <th>商品名</th>
                  <th>値段</th>
+                 <th>評価</th>
                  <th>コメント</th>
               </tr>
             </thead>
@@ -18,8 +19,10 @@
             </th>
             <th><%= link_to item.name, item_path(item) %></th>
             <th>￥<%= (item.price * 1.1).to_i %></th>
-            <th><%#= render 'public/favorites/btn', item: item %></th>
+            <th>いいね数:<%= item.favorites.count %></th>
             <th>コメント数: <%= item.item_comments.count %></th>
         </tr>
         <% end %>
-    </div>
+      </tbody>
+    </table>
+</div>

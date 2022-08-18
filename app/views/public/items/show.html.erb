@@ -2,14 +2,23 @@
 		<div class="item-image">
 			<%= image_tag @item.image, size: "200x200" %>
 		</div>
-	</div>
+	</div><br />
 	<div class="col-xs-5">
 		<div class="detail">
-			<h2><%= @item.name %></h2>
+			<h4>商品名</h4>
+				<%= @item.name %>
+				<br />
+			<h4>商品説明</h4>
 			<p><%= @item.explanation %></p>
-			<h3 class="item-price">￥<%= (@item.price * 1.1).to_i %><span>（税込）</span></h3>
+
+			<h5 class="item-price">価格</h5>
+				￥<%= (@item.price * 1.1).to_i %>（税込）
 		</div>
-		<div>
+		<h5>評価</h5>
+		<div class = "favorite" >
+		 <%= render 'public/favorites/btn', item: @item %>
+		</div>
+		<div class = "item-comment">
       <%= render "public/item_comments/index", item: @item %>
       <%= render "public/item_comments/form", item: @item, item_comment: @item_comment %>
     </div>

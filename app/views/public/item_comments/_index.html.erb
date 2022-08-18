@@ -4,18 +4,18 @@
   <tbody>
       <% @item.item_comments.each do |item_comment| %>
       <tr>
-        <td>
+        <th>
           <%= link_to user_path(item_comment.user) do %>
             <%= image_tag item_comment.user.get_profile_image, size: "100x100" %>
-            <%= @item.users.name %>
+            <%= item_comment.user.name %>
           <% end %>
-        </td>
-        <td><%= item_comment.comment %></td>
-        <td>
+        </th>
+        <th><%= item_comment.comment %></th>
+        <th>
           <% if item_comment.user == current_user %>
-            <%= link_to "削除", item_item_comment_path(item, item_comment), method: :delete, class: "btn btn-danger pull-right" %>
+            <%= button_to "削除", item_item_comment_path(item,item_comment), method: :delete, class: "btn btn-danger pull-right" %>
           <% end %>
-        </td>
+        </th>
       </tr>
       <% end %>
   </tbody>
