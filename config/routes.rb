@@ -17,10 +17,10 @@ Rails.application.routes.draw do
    resources :users, only: [:show,:edit,:update,:destroy,:create]
   #商品
    resources :items, only: [:show, :index] do
-  #コメント機能
-   resources :item_comments, only: [:create, :destroy]
-  #いいね機能
-   resource :favorites, only: [:create, :destroy]
+    #コメント機能
+    resources :item_comments, only: [:create, :destroy]
+    #いいね機能
+    resource :favorites, only: [:create, :destroy]
    end
  end
 

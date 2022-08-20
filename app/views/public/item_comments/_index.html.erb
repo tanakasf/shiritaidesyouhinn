@@ -1,12 +1,17 @@
 <br />
 <h5>コメント</h5>
-<table>
+<table class='table table-inverse'>
   <tbody>
+    <tr>
+      <th>会員</th>
+      <th>感想</th>
+      <th></th>
+    </tr>
       <% @item.item_comments.each do |item_comment| %>
       <tr>
         <th>
           <%= link_to user_path(item_comment.user) do %>
-            <%= image_tag item_comment.user.get_profile_image, size: "100x100" %>
+            <%= image_tag item_comment.user.get_profile_image, size: "100x100" %><br />
             <%= item_comment.user.name %>
           <% end %>
         </th>

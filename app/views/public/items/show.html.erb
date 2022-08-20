@@ -2,25 +2,26 @@
 		<div class="item-image">
 			<%= image_tag @item.image, size: "200x200" %>
 		</div>
-	</div><br />
-	<div class="col-xs-5">
-		<div class="detail">
-			<h4>商品名</h4>
-				<%= @item.name %>
-				<br />
-			<h4>商品説明</h4>
-			<p><%= @item.explanation %></p>
-
-			<h5 class="item-price">価格</h5>
-				￥<%= (@item.price * 1.1).to_i %>（税込）
-		</div>
-		<h5>評価</h5>
-		<div class = "favorite" >
-		 <%= render 'public/favorites/btn', item: @item %>
-		</div>
-		<div class = "item-comment">
-      <%= render "public/item_comments/index", item: @item %>
-      <%= render "public/item_comments/form", item: @item, item_comment: @item_comment %>
-    </div>
+	</div>
+	<table class='table table-inverse'>
+		<thead>
+			<tr>
+				<th>商品名</th>
+				<th>商品説明</th>
+				<th>価格</th>
+				<th>評価</th>
+			</tr>
+		</thead>
+		<tr>
+			<th><%= @item.name %></th>
+			<th><%= @item.explanation %></th>
+			<th>￥<%= (@item.price * 1.1).to_i %>（税込）</th>
+			<th><%= render 'public/favorites/btn',item: @item %></th>
+		</tr>
+	</table>
+	<div class = "item-comment">
+    <%= render "public/item_comments/index", item: @item %>
+    <%= render "public/item_comments/form", item: @item, item_comment: @item_comment %>
+  </div>
 	</div>
 </div>
