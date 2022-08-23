@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-   belongs_to :genre
+  belongs_to :genre
    has_many :users
    has_many :item_comments, dependent: :destroy
    has_many :favorites, dependent: :destroy
@@ -14,5 +14,4 @@ class Item < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
-
 end
