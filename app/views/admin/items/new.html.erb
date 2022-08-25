@@ -1,6 +1,6 @@
 <div class="row">
-    <h2>商品新規登録</h2>
     <%= form_with(model: @item, url: admin_items_path, method: :post, local: true) do |f| %>
+     <h2>商品新規登録</h2>
 <!-- エラーメッセージ表示-->
     <% if @item.errors.any? %>
     <h3><%= @item.errors.count %>error occurrence</h3>
@@ -11,31 +11,33 @@
     </ul>
     <% end %>
 <!-- エラーメッセージ表示-->
-<br />
-        <div class="col-xs-5">
+      <div class='container'>
         	<div class="field">
-        		<%= f.label :image %>
+        		<h6><%= f.label :・商品画像 %></h6>
                 <%= f.file_field :image %>
         	</div>
-        </div>
-        <div class="col-xs-7">
+        	<br />
             <div class="field">
-            	<%= f.label :商品名 %>
+            	<h6><%= f.label :・商品名 %></h6>
             	<%= f.text_field :name, class: "form" %>
             </div>
+            <br />
             <div class="field">
-            	<%= f.label :商品説明 %>
+            	<h6><%= f.label :・商品説明 %></h6>
             	<%= f.text_area :explanation %>
             </div>
+            <br />
             <div class="field">
-            	<%= f.label :ジャンル %>
+            	<h6><%= f.label :・ジャンル %></h6>
             	<%= f.collection_select(:genre_id, Genre.where(is_enabled: true), :id, :name, prompt: "選択してください") %>
             </div>
+            <br />
             <div class="field">
-            	<%= f.label :税抜価格 %>
+               <h6><%= f.label :・税抜価格 %></h6>
             	<%= f.text_field :price %>
             	円
             </div>
+            <br />
             <div class="field">
             	<%= f.radio_button :is_enabled, true %>
             	<%= f.label :is_enabled, "販売中" %>
